@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sai Academy - Premier Computer Training Institute</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8fafc;
+        }
+        
+        .banner {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 50%, #581c87 100%);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+            position: relative;
+        }
+        
+        .banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.08)"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
+            pointer-events: none;
+        }
+        
+        .header-section {
+            padding: 50px 50px 30px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .institute-logo {
+            width: 80px;
+            height: 80px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.2);
+            font-size: 2.5rem;
+        }
+        
+        .main-title {
+            font-size: 4rem;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+            letter-spacing: -1px;
+        }
+        
+        .subtitle {
+            font-size: 1.6rem;
+            color: #e2e8f0;
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+        
+        .tagline {
+            font-size: 1.1rem;
+            color: #fbbf24;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+        
+        .credentials {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .credential-item {
+            background: rgba(255,255,255,0.1);
+            padding: 15px 25px;
+            border-radius: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: white;
+            font-weight: 600;
+        }
+        
+        .main-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 50px;
+            padding: 0 50px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .courses-section {
+            color: white;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .courses-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .course-card {
+            background: rgba(255,255,255,0.12);
+            padding: 25px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .course-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #fbbf24, #f59e0b);
+        }
+        
+        .course-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.18);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+        
+        .course-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .course-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .course-description {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+        
+        .course-topics {
+            font-size: 0.85rem;
+            color: #fbbf24;
+            font-weight: 500;
+        }
+        
+        .specializations {
+            background: rgba(255,255,255,0.08);
+            padding: 25px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.15);
+            margin-bottom: 30px;
+        }
+        
+        .spec-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #fbbf24;
+        }
+        
+        .spec-list {
+            list-style: none;
+            color: white;
+        }
+        
+        .spec-list li {
+            padding: 8px 0;
+            font-size: 0.95rem;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .spec-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+        }
+        
+        .right-section {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .stats-card {
+            background: rgba(255,255,255,0.12);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            text-align: center;
+            color: white;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #fbbf24;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+        
+        .features-card {
+            background: rgba(255,255,255,0.12);
+            padding: 25px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: white;
+        }
+        
+        .features-list {
+            list-style: none;
+        }
+        
+        .features-list li {
+            padding: 10px 0;
+            font-size: 0.95rem;
+            position: relative;
+            padding-left: 25px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .features-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .features-list li::before {
+            content: '🎯';
+            position: absolute;
+            left: 0;
+        }
+        
+        .testimonial-card {
+            background: rgba(255,255,255,0.12);
+            padding: 25px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: white;
+            text-align: center;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: #fbbf24;
+        }
+        
+        .contact-section {
+            background: rgba(0,0,0,0.4);
+            padding: 30px 50px;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            align-items: center;
+            backdrop-filter: blur(10px);
+        }
+        
+        .enroll-cta {
+            text-align: center;
+        }
+        
+        .enroll-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #fbbf24;
+            margin-bottom: 10px;
+        }
+        
+        .enroll-subtitle {
+            color: white;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .contact-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            color: white;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            backdrop-filter: blur(10px);
+        }
+        
+        .contact-text {
+            flex: 1;
+        }
+        
+        .contact-label {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            margin-bottom: 3px;
+        }
+        
+        .contact-value {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        
+        @media (max-width: 1024px) {
+            .main-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .credentials {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .banner {
+                border-radius: 0;
+            }
+            
+            .header-section,
+            .main-content,
+            .contact-section {
+                padding-left: 25px;
+                padding-right: 25px;
+            }
+            
+            .main-title {
+                font-size: 2.8rem;
+            }
+            
+            .contact-section {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                text-align: center;
+            }
+            
+            .contact-details {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <div class="header-section">
+            <div class="institute-logo">🎓</div>
+            <h1 class="main-title">SAI ACADEMY</h1>
+            <p class="subtitle">Premier Institute of Computer Education & Technology</p>
+            <p class="tagline">"Bridging Academic Excellence with Industry Standards"</p>
+            
+            <div class="credentials">
+                <div class="credential-item">📚 10+ Years Teaching Excellence</div>
+                <div class="credential-item">💼 4+ Years Industry Experience</div>
+                <div class="credential-item">🚀 Active Application Developer</div>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <div class="courses-section">
+                <h2 class="section-title">📋 Comprehensive Course Portfolio</h2>
+                
+                <div class="courses-grid">
+                    <div class="course-card">
+                        <span class="course-icon">💻</span>
+                        <h3 class="course-title">Programming Fundamentals</h3>
+                        <p class="course-description">Master core programming concepts with hands-on practice and real-world applications</p>
+                        <p class="course-topics">C/C++, Java, Python, Data Structures, Algorithms</p>
+                    </div>
+                    
+                    <div class="course-card">
+                        <span class="course-icon">🌐</span>
+                        <h3 class="course-title">Web Development</h3>
+                        <p class="course-description">Build modern, responsive websites and web applications from scratch</p>
+                        <p class="course-topics">HTML5, CSS3, JavaScript, Angular, React, Node.js, Databases</p>
+                    </div>
+                    
+                    <div class="course-card">
+                        <span class="course-icon">🏭</span>
+                        <h3 class="course-title">Industrial Training</h3>
+                        <p class="course-description">Industry-standard training with real project experience and mentorship</p>
+                        <p class="course-topics">Software Development, Agile, Version Control, Testing</p>
+                    </div>
+                    
+                    <div class="course-card">
+                        <span class="course-icon">🎨</span>
+                        <h3 class="course-title">Digital Design & Media</h3>
+                        <p class="course-description">Creative skills for digital media and professional presentations</p>
+                        <p class="course-topics">Photoshop, DTP, UI/UX Design, Digital Marketing</p>
+                    </div>
+                    
+                    <div class="course-card">
+                        <span class="course-icon">📱</span>
+                        <h3 class="course-title">Mobile App Development</h3>
+                        <p class="course-description">Create native and cross-platform mobile applications</p>
+                        <p class="course-topics">Android, iOS, React Native, Flutter</p>
+                    </div>
+                    
+                    <div class="course-card">
+                        <span class="course-icon">💼</span>
+                        <h3 class="course-title">Professional Skills</h3>
+                        <p class="course-description">Essential computer skills and office productivity tools</p>
+                        <p class="course-topics">MS Office, Basic Computing, Interview Prep, Soft Skills</p>
+                    </div>
+                </div>
+                
+                <div class="specializations">
+                    <h3 class="spec-title">🎯 Specialized Training Programs</h3>
+                    <ul class="spec-list">
+                        <li>Interview Preparation & Mock Sessions</li>
+                        <li>Project-Based Learning with Real Scenarios</li>
+                        <li>Industry Mentor Guidance & Code Reviews</li>
+                        <li>Placement Assistance & Career Counseling</li>
+                        <li>Flexible Batch Timings (Morning/Evening/Weekend)</li>
+                        <li>One-on-One Doubt Clearing Sessions</li>
+                        <li>Regular Assessments & Progress Tracking</li>
+                        <li>Alumni Network & Continuous Support</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="right-section">
+                <div class="stats-card">
+                    <h3 class="section-title">📊 Our Impact</h3>
+                   
+                    <p style="margin-top: 15px; font-size: 0.9rem; opacity: 0.9;">Serving School, College (UG) & University (PG) Students</p>
+                </div>
+                
+                <div class="features-card">
+                    <h3 class="section-title">⭐ Why Choose Sai Academy?</h3>
+                    <ul class="features-list">
+                        <li>Expert Instructor with Active Industry Experience</li>
+                        <li>Updated Curriculum Aligned with Market Demands</li>
+                        <li>Small Batch Sizes for Personalized Attention</li>
+                        <li>Modern Lab Setup with Latest Technology</li>
+                        <li>Flexible Learning Options & Schedule</li>
+                        <li>100% Practical & Project-Oriented Approach</li>
+                        <li>Regular Industry Guest Lectures</li>
+                        <li>Certification & Portfolio Development</li>
+                    </ul>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"The best computer training institute in the area. Sir's teaching method is excellent and his industry experience really shows in the practical approach to learning."</p>
+                    <p class="testimonial-author">- Former Student, Now Software Engineer</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="contact-section">
+            <div class="enroll-cta">
+                <h2 class="enroll-title">🚀 START YOUR TECH JOURNEY</h2>
+                <p class="enroll-subtitle">Transform Your Career with Industry-Ready Skills</p>
+            </div>
+            
+            <div class="contact-details">
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <div class="contact-text">
+                        <div class="contact-label">Call for Admission</div>
+                        <div class="contact-value">+91 91233 61609</div>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div class="contact-text">
+                        <div class="contact-label">Visit Our Campus</div>
+                        <div class="contact-value">Taramoni Ghat Road<br>(Near Tridhara Samilani Club)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
